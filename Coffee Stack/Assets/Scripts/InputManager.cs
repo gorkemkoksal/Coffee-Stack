@@ -12,5 +12,9 @@ public class InputManager : MonoBehaviour
         {
             onAnyTouch(ctx.ReadValue<float>());
         }
+        else if(ctx.canceled)
+        {
+            onAnyTouch(0);
+        }
     }
 }

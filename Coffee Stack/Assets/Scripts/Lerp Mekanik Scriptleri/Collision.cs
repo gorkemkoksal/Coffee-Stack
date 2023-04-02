@@ -1,24 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Collision : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Cube")
+        if (other.CompareTag("Cup"))
         {
-            if (!ATMRush.Instance.cubes.Contains(other.gameObject))
+            if (!ATMRush.Instance.cups.Contains(other.gameObject))
             {
-                other.GetComponent<BoxCollider>().isTrigger = false;
+                //   other.GetComponent<BoxCollider>().isTrigger = false;
                 other.gameObject.tag = "Untagged";
                 other.gameObject.AddComponent<Collision>();
-                other.gameObject.AddComponent<Rigidbody>();
-                other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                var rb = other.gameObject.AddComponent<Rigidbody>();
+                rb.isKinematic = true;
 
-                ATMRush.Instance.StackCube(other.gameObject, ATMRush.Instance.cubes.Count - 1);
+                ATMRush.Instance.StackCube(other.gameObject, ATMRush.Instance.cups.Count - 1);
 
             }
         }
+        //else if (other.CompareTag("Filler"))
+        //{
+        //    transform.GetChild(0).gameObject.SetActive(false);   buralar mesh gelsin oyle simdi ne yapsam bos
+        //    transform.GetChild(1).gameObject.SetActive(true);
+        //}
     }
 }

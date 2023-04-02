@@ -6,8 +6,7 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] float verticalSpeed = 5f;
     [SerializeField] float horizontalSpeed = 5f;
-    [SerializeField] private List<GameObject> gameObjects = new List<GameObject>();
-    GameObject mainObject;
+    private GameObject mainObject;
 
     private void OnEnable()
     {

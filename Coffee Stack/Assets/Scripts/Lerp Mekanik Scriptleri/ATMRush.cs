@@ -5,74 +5,93 @@ using DG.Tweening;
 
 public class ATMRush : MonoBehaviour
 {
+    public List<GameObject> cups = new List<GameObject>();
+
+    [SerializeField] private float movementDelay = 0.25f;
+
     public static ATMRush Instance;
-    public float movementDelay = 0.25f;
-
-    public List<GameObject> cubes = new List<GameObject>();
-
     private void Awake()
     {
         if (Instance == null)
             Instance = this;
     }
-
-
-    void Update()
+    private void OnEnable()
     {
-        if (Input.GetKey(KeyCode.Mouse0))
+        InputManager.onAnyTouch += InputManager_onAnyTouch;
+        cups.Add(transform.GetChild(0).gameObject);
+    }
+    private void OnDisable()
+    {
+        InputManager.onAnyTouch -= InputManager_onAnyTouch;
+    }
+    private void InputManager_onAnyTouch(float input)
+    {
+        if (input != 0)
         {
-            MoveListElements();
+            MoveCupsInTheList();
         }
-
-        if (Input.GetMouseButtonUp(0))
+        else
         {
             MoveOrigin();
         }
     }
 
+    //void Update()
+    //{
+    //    if (Input.GetKey(KeyCode.Mouse0))
+    //    {
+    //        MoveCupsInTheList();
+    //    }
+
+    //    if (Input.GetMouseButtonUp(0))
+    //    {
+    //        MoveOrigin();
+    //    }
+    //}
+
     public void StackCube(GameObject other, int index)
     {
         other.transform.parent = transform;
-        Vector3 newPos = cubes[index].transform.localPosition;
-        newPos.z += 1;
+        Vector3 newPos = cups[index].transform.localPosition;
+        newPos.z += other.transform.localScale.z;                          //generic olsun diye denedim
         other.transform.localPosition = newPos;
-        cubes.Add(other);
+        cups.Add(other);
 
         StartCoroutine(MakeObjectsBigger());
     }
-    
+
     private IEnumerator MakeObjectsBigger()
     {
-        for (int i = cubes.Count - 1; i > 0; i--)
+        for (int i = cups.Count - 1; i > 0; i--)
         {
-            int index = i;
-            Vector3 scale = new Vector3(1, 1, 1);
+            var index = i;
+            var scale = Vector3.one;   //buraya meshler gelince ayar cekmek gerekicek
             scale *= 1.5f;
 
-            cubes[index].transform.DOScale(scale, 0.1f).OnComplete(() => 
-             cubes[index].transform.DOScale(new Vector3(1, 1, 1), 0.1f));
+            cups[index].transform.DOScale(scale, 0.1f).OnComplete(() =>
+             cups[index].transform.DOScale(Vector3.one, 0.1f));
 
             yield return new WaitForSeconds(0.05f);
         }
     }
 
-    private void MoveListElements()
+    private void MoveCupsInTheList()
     {
-        for (int i = 1; i < cubes.Count; i++)
+        for (int i = 1; i < cups.Count; i++)
         {
-            Vector3 pos = cubes[i].transform.localPosition;
-            pos.x = cubes[i - 1].transform.localPosition.x;
-            cubes[i].transform.DOLocalMove(pos, movementDelay);
+            var pos = cups[i].transform.localPosition;
+            pos.x = cups[i - 1].transform.localPosition.x;
+            cups[i].transform.DOLocalMove(pos, movementDelay);
         }
     }
 
     private void MoveOrigin()
     {
-        for (int i = 1; i < cubes.Count; i++)
+        for (int i = 1; i < cups.Count; i++)
         {
-            Vector3 pos = cubes[i].transform.localPosition;
-            pos.x = cubes[0].transform.localPosition.x;
-            cubes[i].transform.DOLocalMove(pos, 0.70f);
+            var pos = cups[i].transform.localPosition;
+            pos.x = cups[0].transform.localPosition.x;
+            cups[i].transform.DOLocalMove(pos, 0.70f);
         }
     }
 }

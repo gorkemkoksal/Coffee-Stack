@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    private Rigidbody rb;
     [SerializeField] float verticalSpeed = 5f;
     [SerializeField] float horizontalSpeed = 5f;
     [SerializeField] private List<GameObject> gameObjects = new List<GameObject>();
@@ -21,7 +20,6 @@ public class Movement : MonoBehaviour
     private void Start()
     {
         mainObject = transform.GetChild(0).gameObject;
-        rb = GetComponent<Rigidbody>();
     }
     void Update()
     {
@@ -29,6 +27,8 @@ public class Movement : MonoBehaviour
     }
     private void InputManager_OnAnyTouch(float input)
     {
-        rb.AddForce(Vector3.right * input * horizontalSpeed);
+        var moveVector = new Vector3(input, 0, 0);
+        mainObject.transform.localPosition = Vector3.MoveTowards(mainObject.transform.localPosition,
+            mainObject.transform.localPosition + moveVector, Time.deltaTime * horizontalSpeed);
     }
 }

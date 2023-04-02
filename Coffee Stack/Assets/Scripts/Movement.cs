@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    private Rigidbody rb;
     [SerializeField] float verticalSpeed = 5f;
     [SerializeField] float horizontalSpeed = 5f;
     [SerializeField] private List<GameObject> gameObjects = new List<GameObject>();
@@ -20,6 +21,7 @@ public class Movement : MonoBehaviour
     private void Start()
     {
         mainObject = transform.GetChild(0).gameObject;
+        rb = GetComponent<Rigidbody>();
     }
     void Update()
     {

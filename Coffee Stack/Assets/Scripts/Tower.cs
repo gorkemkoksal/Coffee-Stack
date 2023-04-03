@@ -11,6 +11,9 @@ public class Tower : MonoBehaviour
     public float delay = 0f;
     public float pos = 0f;
 
+
+
+
     void Start()
     {
         NumberOfTower();

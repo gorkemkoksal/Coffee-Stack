@@ -1278,9 +1278,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7b27834fff1a154d9279c9cfcfa9c84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectPrefab: {fileID: 1109933529}
-  spawnPoint: {fileID: 1109933533}
-  delay: 0.3
+  objectPrefab: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  delay: 0
   pos: 0
 --- !u!1001 &2011762915
 PrefabInstance:

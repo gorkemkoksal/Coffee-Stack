@@ -12,6 +12,8 @@ public class ATMRush : MonoBehaviour
     public static ATMRush Instance;
     private void Awake()
     {
+        DOTween.SetTweensCapacity(4000, 50);
+
         if (Instance == null)
             Instance = this;
     }

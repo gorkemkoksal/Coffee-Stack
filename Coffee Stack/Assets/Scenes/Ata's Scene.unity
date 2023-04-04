@@ -198,40 +198,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 11445575}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &11445577 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2699375878865502146, guid: 0a334b8ee3ab06e448b5e5d77163d15a,
-    type: 3}
-  m_PrefabInstance: {fileID: 11445575}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &11445578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 11445577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a01029c3db06b344b3b0b41ed888ef5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!54 &11445579
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 11445577}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1001 &37028212
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1278,8 +1244,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7b27834fff1a154d9279c9cfcfa9c84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectPrefab: {fileID: 0}
-  spawnPoint: {fileID: 0}
+  objectPrefab: {fileID: 1109933529}
+  spawnPoint: {fileID: 1109933533}
   delay: 0
   pos: 0
 --- !u!1001 &2011762915

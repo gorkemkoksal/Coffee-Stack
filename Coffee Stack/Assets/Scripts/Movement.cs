@@ -7,6 +7,7 @@ public class Movement : MonoBehaviour
     [SerializeField] float verticalSpeed = 5f;
     [SerializeField] float horizontalSpeed = 5f;
     private GameObject mainObject;
+    private GameObject handObject; // Eli hareket ettirmek için tanýmladým
 
     private void OnEnable()
     {
@@ -19,6 +20,7 @@ public class Movement : MonoBehaviour
     private void Start()
     {
         mainObject = transform.GetChild(0).gameObject;
+        handObject = transform.GetChild(1).gameObject;
     }
     void Update()
     {
@@ -29,5 +31,9 @@ public class Movement : MonoBehaviour
         var moveVector = new Vector3(input, 0, 0);
         mainObject.transform.localPosition = Vector3.MoveTowards(mainObject.transform.localPosition,
             mainObject.transform.localPosition + moveVector, Time.deltaTime * horizontalSpeed);
+
+        // Þimdilik eli de hareket ettirmek için bunu yaptým ama deðiþtirmek gerekicek
+        handObject.transform.localPosition = Vector3.MoveTowards(handObject.transform.localPosition,
+            handObject.transform.localPosition + moveVector, Time.deltaTime * horizontalSpeed);
     }
 }

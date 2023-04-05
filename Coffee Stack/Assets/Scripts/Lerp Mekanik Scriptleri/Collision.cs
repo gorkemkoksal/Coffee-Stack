@@ -18,10 +18,24 @@ public class Collision : MonoBehaviour
 
             }
         }
-        //else if (other.CompareTag("Filler"))
-        //{
-        //    transform.GetChild(0).gameObject.SetActive(false);   buralar mesh gelsin oyle simdi ne yapsam bos
-        //    transform.GetChild(1).gameObject.SetActive(true);
-        //}
+        else if (other.CompareTag("Filler"))
+        {
+            transform.GetChild(0).gameObject.SetActive(false);
+            transform.GetChild(1).gameObject.SetActive(true);
+        }
+        else if (other.CompareTag("Packaging"))
+        {
+            if (transform.GetChild(3).gameObject.activeSelf)
+            {
+                transform.GetChild(3).gameObject.SetActive(false);
+                transform.GetChild(4).gameObject.SetActive(true);
+            }
+            else if(transform.GetChild(0).gameObject.activeSelf || transform.GetChild(1).gameObject.activeSelf)
+            {
+                transform.GetChild(0).gameObject.SetActive(false);
+                transform.GetChild(1).gameObject.SetActive(false);
+                transform.GetChild(2).gameObject.SetActive(true);
+            }
+        }
     }
 }

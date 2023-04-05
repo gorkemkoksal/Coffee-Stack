@@ -55,6 +55,7 @@ public class ATMRush : MonoBehaviour
     {
         other.transform.parent = transform;
         Vector3 newPos = cups[index].transform.localPosition;
+        newPos.y = 1;
         newPos.z += other.transform.localScale.z;                          //generic olsun diye denedim
         other.transform.localPosition = newPos;
         cups.Add(other);

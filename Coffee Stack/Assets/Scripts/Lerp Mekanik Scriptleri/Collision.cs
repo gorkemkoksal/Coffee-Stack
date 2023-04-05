@@ -11,7 +11,8 @@ public class Collision : MonoBehaviour
                 //   other.GetComponent<BoxCollider>().isTrigger = false;
                 other.gameObject.tag = "Untagged";
                 other.gameObject.AddComponent<Collision>();
-                var rb = other.gameObject.AddComponent<Rigidbody>();
+                //   var rb = other.gameObject.AddComponent<Rigidbody>();
+                var rb = other.gameObject.GetComponent<Rigidbody>();
                 rb.isKinematic = true;
 
                 ATMRush.Instance.StackCube(other.gameObject, ATMRush.Instance.cups.Count - 1);
@@ -23,7 +24,7 @@ public class Collision : MonoBehaviour
             transform.GetChild(0).gameObject.SetActive(false);
             transform.GetChild(1).gameObject.SetActive(true);
         }
-        else if (other.CompareTag("Packaging"))
+        else if (other.CompareTag("Packager"))
         {
             if (transform.GetChild(3).gameObject.activeSelf)
             {

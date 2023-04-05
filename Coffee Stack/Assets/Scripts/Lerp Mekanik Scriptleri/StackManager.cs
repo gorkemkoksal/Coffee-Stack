@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class ATMRush : MonoBehaviour
+public class StackManager : MonoBehaviour
 {
     public List<GameObject> cups = new List<GameObject>();
 
     [SerializeField] private float movementDelay = 0.25f;
 
-    public static ATMRush Instance;
+    public static StackManager Instance;
     private void Awake()
     {
         DOTween.SetTweensCapacity(4000, 50);

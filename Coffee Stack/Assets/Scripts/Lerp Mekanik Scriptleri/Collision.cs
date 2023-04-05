@@ -7,7 +7,7 @@ public class Collision : MonoBehaviour
     {
         if (other.CompareTag("Cup"))
         {
-            if (!ATMRush.Instance.cups.Contains(other.gameObject))
+            if (!StackManager.Instance.cups.Contains(other.gameObject))
             {
                 //   other.GetComponent<BoxCollider>().isTrigger = false;
                 other.gameObject.tag = "Untagged";
@@ -16,7 +16,7 @@ public class Collision : MonoBehaviour
                 var rb = other.gameObject.GetComponent<Rigidbody>();
                 rb.isKinematic = true;
 
-                ATMRush.Instance.StackCube(other.gameObject, ATMRush.Instance.cups.Count - 1);
+                StackManager.Instance.StackCube(other.gameObject, StackManager.Instance.cups.Count - 1);
 
             }
         }

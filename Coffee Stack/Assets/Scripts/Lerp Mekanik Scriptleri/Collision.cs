@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Collision : MonoBehaviour
 {
+    bool isMilkshake;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Cup"))
@@ -21,20 +22,39 @@ public class Collision : MonoBehaviour
         }
         else if (other.CompareTag("Filler"))
         {
-            transform.GetChild(0).gameObject.SetActive(false);
+            if (isMilkshake) return;
+
+            for (int i = 0; i < transform.childCount; i++)
+            {
+            transform.GetChild(i).gameObject.SetActive(false);
+            }
             transform.GetChild(1).gameObject.SetActive(true);
+        }
+        else if (other.CompareTag("Milkshake"))
+        {
+            if (isMilkshake) return;
+            isMilkshake = true;
+
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                transform.GetChild(i).gameObject.SetActive(false);
+            }
+            transform.GetChild(3).gameObject.SetActive(true);
         }
         else if (other.CompareTag("Packager"))
         {
-            if (transform.GetChild(3).gameObject.activeSelf)
+            if (isMilkshake)
             {
                 transform.GetChild(3).gameObject.SetActive(false);
                 transform.GetChild(4).gameObject.SetActive(true);
             }
+            
             else if(transform.GetChild(0).gameObject.activeSelf || transform.GetChild(1).gameObject.activeSelf)
             {
-                transform.GetChild(0).gameObject.SetActive(false);
-                transform.GetChild(1).gameObject.SetActive(false);
+                for (int i = 0; i < transform.childCount; i++)
+                {
+                    transform.GetChild(i).gameObject.SetActive(false);
+                }
                 transform.GetChild(2).gameObject.SetActive(true);
             }
         }

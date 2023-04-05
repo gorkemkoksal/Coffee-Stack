@@ -29,6 +29,7 @@ public class Collision : MonoBehaviour
             transform.GetChild(i).gameObject.SetActive(false);
             }
             transform.GetChild(1).gameObject.SetActive(true);
+            MoneyManager.Instance.GetMoney(1);
         }
         else if (other.CompareTag("Milkshake"))
         {
@@ -40,6 +41,7 @@ public class Collision : MonoBehaviour
                 transform.GetChild(i).gameObject.SetActive(false);
             }
             transform.GetChild(3).gameObject.SetActive(true);
+            MoneyManager.Instance.GetMoney(1);
         }
         else if (other.CompareTag("Packager"))
         {
@@ -47,6 +49,7 @@ public class Collision : MonoBehaviour
             {
                 transform.GetChild(3).gameObject.SetActive(false);
                 transform.GetChild(4).gameObject.SetActive(true);
+                MoneyManager.Instance.GetMoney(1);
             }
             
             else if(transform.GetChild(0).gameObject.activeSelf || transform.GetChild(1).gameObject.activeSelf)
@@ -56,6 +59,7 @@ public class Collision : MonoBehaviour
                     transform.GetChild(i).gameObject.SetActive(false);
                 }
                 transform.GetChild(2).gameObject.SetActive(true);
+                MoneyManager.Instance.GetMoney(1);
             }
         }
     }

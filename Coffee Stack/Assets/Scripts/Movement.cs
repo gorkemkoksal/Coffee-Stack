@@ -19,8 +19,8 @@ public class Movement : MonoBehaviour
     }
     private void Start()
     {
-        mainObject = transform.GetChild(0).gameObject;
-        handObject = transform.GetChild(1).gameObject;
+        handObject = transform.GetChild(0).gameObject;
+        mainObject = transform.GetChild(1).gameObject;
     }
     void Update()
     {

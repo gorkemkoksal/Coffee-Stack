@@ -10,7 +10,7 @@ public class Collision : MonoBehaviour
             if (!StackManager.Instance.cups.Contains(other.gameObject))
             {
                 //   other.GetComponent<BoxCollider>().isTrigger = false;
-                other.gameObject.tag = "Untagged";
+                other.gameObject.tag = "HandedCup";
                 other.gameObject.AddComponent<Collision>();
                 //   var rb = other.gameObject.AddComponent<Rigidbody>();
                 var rb = other.gameObject.GetComponent<Rigidbody>();

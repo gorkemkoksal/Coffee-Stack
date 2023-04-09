@@ -20,7 +20,7 @@ public class StackManager : MonoBehaviour
     private void OnEnable()
     {
         InputManager.onAnyTouch += InputManager_onAnyTouch;
-        cups.Add(transform.GetChild(0).gameObject);
+        cups.Add(transform.GetChild(1).gameObject);
     }
     private void OnDisable()
     {

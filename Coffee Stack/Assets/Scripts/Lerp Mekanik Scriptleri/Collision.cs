@@ -24,12 +24,13 @@ public class Collision : MonoBehaviour
         {
             if (isMilkshake) return;
 
-            for (int i = 0; i < transform.childCount; i++)
-            {
-            transform.GetChild(i).gameObject.SetActive(false);
-            }
+            //for (int i = 0; i < transform.childCount; i++)
+            //{
+            //transform.GetChild(i).gameObject.SetActive(false);
+            //}
+            //transform.GetChild(1).gameObject.SetActive(true);
             transform.GetChild(1).gameObject.SetActive(true);
-            MoneyManager.Instance.GetMoney(1);
+           // MoneyManager.Instance.GetMoney(1);                                      paraaaaaaaaaaaaaaa
         }
         else if (other.CompareTag("Milkshake"))
         {
@@ -41,26 +42,27 @@ public class Collision : MonoBehaviour
                 transform.GetChild(i).gameObject.SetActive(false);
             }
             transform.GetChild(3).gameObject.SetActive(true);
-            MoneyManager.Instance.GetMoney(1);
+            // MoneyManager.Instance.GetMoney(1);                                          paraaaaaaaaaaaaaaa
         }
         else if (other.CompareTag("Packager"))
         {
-            if (isMilkshake)
-            {
-                transform.GetChild(3).gameObject.SetActive(false);
-                transform.GetChild(4).gameObject.SetActive(true);
-                MoneyManager.Instance.GetMoney(1);
-            }
-            
-            else if(transform.GetChild(0).gameObject.activeSelf || transform.GetChild(1).gameObject.activeSelf)
-            {
-                for (int i = 0; i < transform.childCount; i++)
-                {
-                    transform.GetChild(i).gameObject.SetActive(false);
-                }
-                transform.GetChild(2).gameObject.SetActive(true);
-                MoneyManager.Instance.GetMoney(1);
-            }
+            //if (isMilkshake)
+            //{
+            //    transform.GetChild(3).gameObject.SetActive(false);
+            //    transform.GetChild(4).gameObject.SetActive(true);
+            //    MoneyManager.Instance.GetMoney(1);                                        paraaaaaaaaaaaaaaa
+            //}
+
+            //else if(transform.GetChild(0).gameObject.activeSelf || transform.GetChild(1).gameObject.activeSelf)
+            //{
+            //    for (int i = 0; i < transform.childCount; i++)
+            //    {
+            //        transform.GetChild(i).gameObject.SetActive(false);
+            //    }
+            //    transform.GetChild(2).gameObject.SetActive(true);
+            //    MoneyManager.Instance.GetMoney(1);                                        paraaaaaaaaaaaaaaa
+            //}
+            transform.GetChild(2).gameObject.SetActive(true);
         }
     }
 }

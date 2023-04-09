@@ -75,6 +75,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cups
       objectReference: {fileID: 0}
+    - target: {fileID: 3437213122977894863, guid: 1da6f9c150ddb3e49b72ebc817da2786,
+        type: 3}
+      propertyPath: m_TagString
+      value: HandedCup
+      objectReference: {fileID: 0}
     - target: {fileID: 5179681644032738875, guid: 1da6f9c150ddb3e49b72ebc817da2786,
         type: 3}
       propertyPath: m_RootOrder

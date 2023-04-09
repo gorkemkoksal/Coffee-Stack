@@ -97,4 +97,8 @@ public class StackManager : MonoBehaviour
             cups[i].transform.DOLocalMove(pos, 0.70f);
         }
     }
+    public void RemoveCup(GameObject cup)
+    {
+        cups.Remove(cup);
+    }
 }

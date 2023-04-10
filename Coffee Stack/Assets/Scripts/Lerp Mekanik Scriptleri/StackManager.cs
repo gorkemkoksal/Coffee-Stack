@@ -86,6 +86,7 @@ public class StackManager : MonoBehaviour
             pos.x = cups[i - 1].transform.localPosition.x;
             cups[i].transform.DOLocalMove(pos, movementDelay);
         }
+
     }
 
     private void MoveOrigin()

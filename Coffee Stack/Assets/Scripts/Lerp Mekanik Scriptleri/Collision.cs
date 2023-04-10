@@ -17,6 +17,7 @@ public class Collision : MonoBehaviour
                 rb.isKinematic = true;
 
                 StackManager.Instance.StackCube(other.gameObject, StackManager.Instance.cups.Count - 1);
+                AudioManager.Instance.audioSource.PlayOneShot(AudioManager.Instance.takingCup, 1f);
 
             }
         }
@@ -30,7 +31,8 @@ public class Collision : MonoBehaviour
             //}
             //transform.GetChild(1).gameObject.SetActive(true);
             transform.GetChild(1).gameObject.SetActive(true);
-           // MoneyManager.Instance.GetMoney(1);                                      paraaaaaaaaaaaaaaa
+            AudioManager.Instance.audioSource.PlayOneShot(AudioManager.Instance.pooring, 1f);
+            // MoneyManager.Instance.GetMoney(1);                                      paraaaaaaaaaaaaaaa
         }
         else if (other.CompareTag("Milkshake"))
         {
@@ -63,6 +65,7 @@ public class Collision : MonoBehaviour
             //    MoneyManager.Instance.GetMoney(1);                                        paraaaaaaaaaaaaaaa
             //}
             transform.GetChild(2).gameObject.SetActive(true);
+            AudioManager.Instance.audioSource.PlayOneShot(AudioManager.Instance.packaging, 1f);
         }
     }
 }

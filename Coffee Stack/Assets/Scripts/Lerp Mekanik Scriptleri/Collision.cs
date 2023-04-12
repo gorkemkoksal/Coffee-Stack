@@ -19,7 +19,6 @@ public class Collision : MonoBehaviour
                 StackManager.Instance.StackCube(other.gameObject, StackManager.Instance.cups.Count - 1);
                 AudioManager.Instance.audioSource.PlayOneShot(AudioManager.Instance.takingCup, 1f);
                 MoneyManager.Instance.GetMoney(1);
-
             }
         }
         else if (other.CompareTag("Filler"))

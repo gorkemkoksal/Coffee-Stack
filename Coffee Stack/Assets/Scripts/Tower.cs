@@ -36,5 +36,7 @@ public class Tower : MonoBehaviour
             time += 2f*Time.deltaTime;
             yield return new WaitForSeconds(0.001f);
         }
+
+        MoneyManager.Instance.RewardPileOfCoin(4);
     }
 }

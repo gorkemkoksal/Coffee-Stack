@@ -33,7 +33,7 @@ public class Tower : MonoBehaviour
         while (hand.transform.position.y < 30)
         {
             hand.transform.position =new Vector3(hand.transform.position.x, speed.Evaluate(time),hand.transform.position.z);
-            time += 0.005f;
+            time += 2f*Time.deltaTime;
             yield return new WaitForSeconds(0.001f);
         }
     }

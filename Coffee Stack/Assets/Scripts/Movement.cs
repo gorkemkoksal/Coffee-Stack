@@ -1,3 +1,4 @@
+using Cinemachine;
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] float verticalSpeed = 5f;
     [SerializeField] float horizontalSpeed = 5f;
+    [SerializeField] CinemachineVirtualCamera followCam;
     private GameObject mainObject;
     private GameObject handObject; // Eli hareket ettirmek için tanýmladým
     private bool isLevelEnded;
@@ -27,6 +29,10 @@ public class Movement : MonoBehaviour
     }
     void Update()
     {
+        if (transform.childCount <= 1)
+        {
+            followCam.gameObject.SetActive(false);
+        }
         if (isTowering) { return; }
         transform.position += Vector3.forward * verticalSpeed * Time.deltaTime;
     }

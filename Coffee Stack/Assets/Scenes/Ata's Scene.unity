@@ -1342,7 +1342,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   m_LocalRotation: {x: 0.19611613, y: 0, z: 0, w: 0.9805807}
-  m_LocalPosition: {x: 0, y: 5, z: 100.29}
+  m_LocalPosition: {x: 0, y: 5, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7817,7 +7817,7 @@ PrefabInstance:
     - target: {fileID: 7237175699178481734, guid: 3410ce58ee7101f46838df21d5aa5429,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.18
+      value: -1.02
       objectReference: {fileID: 0}
     - target: {fileID: 7237175699178481734, guid: 3410ce58ee7101f46838df21d5aa5429,
         type: 3}
@@ -7827,7 +7827,7 @@ PrefabInstance:
     - target: {fileID: 7237175699178481734, guid: 3410ce58ee7101f46838df21d5aa5429,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 100.79
+      value: -5.5
       objectReference: {fileID: 0}
     - target: {fileID: 7237175699178481734, guid: 3410ce58ee7101f46838df21d5aa5429,
         type: 3}
@@ -7864,7 +7864,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7237175700095170643, guid: 3410ce58ee7101f46838df21d5aa5429,
+        type: 3}
+      propertyPath: m_FollowOffset.x
+      value: -1.2
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7237175700095170646, guid: 3410ce58ee7101f46838df21d5aa5429, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3410ce58ee7101f46838df21d5aa5429, type: 3}
 --- !u!1 &1301899892
 GameObject:
@@ -12516,6 +12522,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FollowVCam
       objectReference: {fileID: 0}
+    - target: {fileID: 7237175699178481732, guid: 3410ce58ee7101f46838df21d5aa5429,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7237175699178481733, guid: 3410ce58ee7101f46838df21d5aa5429,
         type: 3}
       propertyPath: m_Follow
@@ -12544,7 +12555,7 @@ PrefabInstance:
     - target: {fileID: 7237175699178481734, guid: 3410ce58ee7101f46838df21d5aa5429,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 100.29
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 7237175699178481734, guid: 3410ce58ee7101f46838df21d5aa5429,
         type: 3}
@@ -12677,7 +12688,7 @@ PrefabInstance:
     - target: {fileID: 3017174276218205482, guid: fa70d3b955a05a64db3434f11341f8ad,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7407029265934589682, guid: fa70d3b955a05a64db3434f11341f8ad,
         type: 3}
@@ -12689,6 +12700,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7852983251591283841, guid: fa70d3b955a05a64db3434f11341f8ad,
+        type: 3}
+      propertyPath: followCam
+      value: 
+      objectReference: {fileID: 1363195252}
     - target: {fileID: 7852983251591283846, guid: fa70d3b955a05a64db3434f11341f8ad,
         type: 3}
       propertyPath: m_RootOrder
@@ -12707,7 +12723,7 @@ PrefabInstance:
     - target: {fileID: 7852983251591283846, guid: fa70d3b955a05a64db3434f11341f8ad,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 106.29
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7852983251591283846, guid: fa70d3b955a05a64db3434f11341f8ad,
         type: 3}

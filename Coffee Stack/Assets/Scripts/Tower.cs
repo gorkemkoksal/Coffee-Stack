@@ -1,44 +1,40 @@
+using Cinemachine;
+using DG.Tweening;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 public class Tower : MonoBehaviour
 {
-    // Þimdilik üst üstte oluþturma kodunu ayarladým ilerleyen zamanlarda kamera ile birlikte yükselmesini vs ayarlamak lazým
-
-    public GameObject objectPrefab;
-    public Transform spawnPoint;
-    public float delay = 0f;
-    public float pos = 0f;
-
-
-
-
-    void Start()
+    [SerializeField] private Transform hand;
+    [SerializeField] private CinemachineVirtualCamera gamePlayCam;
+    private Movement movement;
+    [SerializeField] AnimationCurve speed;
+    GameObject money;
+    private void Start()
     {
-        NumberOfTower();
+        movement = GetComponent<Movement>();
     }
-
-    void NumberOfTower(int num = 10)
+    private void OnTriggerEnter(Collider other)
     {
-        // num adet objePrefab kopyasý oluþtur
-        for (int i = 0; i < num; i++)
+        if (other.CompareTag("Money"))
         {
-            // Oluþturma gecikmesi süresince bekle
-            float delayTime = i * delay;
-            Invoke("MakeTower", delayTime);
+            money = other.gameObject;
+            movement.SetIsTowering();
+            gamePlayCam.gameObject.SetActive(false);
+            StartCoroutine("TowerSequence");
         }
     }
-
-    void MakeTower()
+    IEnumerator TowerSequence()
     {
-        // Prefab objesinin kopyasýný spawn noktasýnda oluþtur
-        GameObject newObject = Instantiate(objectPrefab, spawnPoint.position, Quaternion.identity);
-
-        // Yeni objenin konumunu ayarla
-        Vector3 newPos = newObject.transform.position;
-        pos += 1f;
-        newPos.y += pos; // Y ekseninde pos birim kadar yukarýda oluþtur
-        newObject.transform.position = newPos;
+        var time = 0f;
+        hand.transform.DOLocalMoveX(1.3f, 1);
+        hand.transform.DOLocalRotate(new Vector3(0, 0, 75), 1f);
+        yield return new WaitForSeconds(1f);
+        money.transform.SetParent(hand);
+        while (hand.transform.position.y < 30)
+        {
+            hand.transform.position =new Vector3(hand.transform.position.x, speed.Evaluate(time),hand.transform.position.z);
+            time += 0.005f;
+            yield return new WaitForSeconds(0.001f);
+        }
     }
 }

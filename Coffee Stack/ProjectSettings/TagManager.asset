@@ -9,6 +9,8 @@ TagManager:
   - Packager
   - Milkshake
   - HandedCup
+  - LevelEnd
+  - Money
   layers:
   - Default
   - TransparentFX

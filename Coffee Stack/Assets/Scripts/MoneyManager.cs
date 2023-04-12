@@ -9,21 +9,16 @@ public class MoneyManager : MonoBehaviour
     public int money;
     public Text moneyCounter;
     public TextMeshPro moneyLabel;
-
     public static MoneyManager Instance;
-
     private void Awake()
     {
         if (Instance == null)
             Instance = this;
     }
-
     void Start()
     {
         moneyLabel.text = PlayerPrefs.GetInt("Money").ToString();
     }
-
-
     void Update()
     {
         

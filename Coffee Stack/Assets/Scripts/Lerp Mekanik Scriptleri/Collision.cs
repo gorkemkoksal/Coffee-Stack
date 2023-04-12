@@ -1,8 +1,10 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class Collision : MonoBehaviour
 {
     bool isMilkshake;
+    bool isEnded;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Cup"))
@@ -67,6 +69,12 @@ public class Collision : MonoBehaviour
             MoneyManager.Instance.GetMoney(1);
             transform.GetChild(2).gameObject.SetActive(true);
             AudioManager.Instance.audioSource.PlayOneShot(AudioManager.Instance.packaging, 1f);
+        }
+        else if (other.CompareTag("LevelEnd"))
+        {
+            if (isEnded) { return; }
+            isEnded = true;
+            var movement = transform.parent.GetComponent<Movement>();
         }
     }
 }

@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,8 @@ public class Movement : MonoBehaviour
     [SerializeField] float horizontalSpeed = 5f;
     private GameObject mainObject;
     private GameObject handObject; // Eli hareket ettirmek için tanýmladým
+    private bool isLevelEnded;
+    private bool isTowering;
 
     private void OnEnable()
     {
@@ -24,10 +27,13 @@ public class Movement : MonoBehaviour
     }
     void Update()
     {
+        if (isTowering) { return; }
         transform.position += Vector3.forward * verticalSpeed * Time.deltaTime;
     }
     private void InputManager_OnAnyTouch(float input)
     {
+        if (isLevelEnded) { return; }
+
         var moveVector = new Vector3(input, 0, 0);
         mainObject.transform.localPosition = Vector3.MoveTowards(mainObject.transform.localPosition,
             mainObject.transform.localPosition + moveVector, Time.deltaTime * horizontalSpeed);
@@ -36,4 +42,10 @@ public class Movement : MonoBehaviour
         handObject.transform.localPosition = Vector3.MoveTowards(handObject.transform.localPosition,
             handObject.transform.localPosition + moveVector, Time.deltaTime * horizontalSpeed);
     }
+    public void SetIsTowering()
+    {
+        isTowering = true;
+    }
+
+
 }

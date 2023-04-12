@@ -18,6 +18,7 @@ public class Collision : MonoBehaviour
 
                 StackManager.Instance.StackCube(other.gameObject, StackManager.Instance.cups.Count - 1);
                 AudioManager.Instance.audioSource.PlayOneShot(AudioManager.Instance.takingCup, 1f);
+                MoneyManager.Instance.GetMoney(1);
 
             }
         }
@@ -32,7 +33,7 @@ public class Collision : MonoBehaviour
             //transform.GetChild(1).gameObject.SetActive(true);
             transform.GetChild(1).gameObject.SetActive(true);
             AudioManager.Instance.audioSource.PlayOneShot(AudioManager.Instance.pooring, 1f);
-            // MoneyManager.Instance.GetMoney(1);                                      paraaaaaaaaaaaaaaa
+            MoneyManager.Instance.GetMoney(1);
         }
         else if (other.CompareTag("Milkshake"))
         {
@@ -44,7 +45,7 @@ public class Collision : MonoBehaviour
                 transform.GetChild(i).gameObject.SetActive(false);
             }
             transform.GetChild(3).gameObject.SetActive(true);
-            // MoneyManager.Instance.GetMoney(1);                                          paraaaaaaaaaaaaaaa
+            MoneyManager.Instance.GetMoney(1);
         }
         else if (other.CompareTag("Packager"))
         {
@@ -61,9 +62,9 @@ public class Collision : MonoBehaviour
             //    {
             //        transform.GetChild(i).gameObject.SetActive(false);
             //    }
-            //    transform.GetChild(2).gameObject.SetActive(true);
-            //    MoneyManager.Instance.GetMoney(1);                                        paraaaaaaaaaaaaaaa
+            //    transform.GetChild(2).gameObject.SetActive(true);            
             //}
+            MoneyManager.Instance.GetMoney(1);
             transform.GetChild(2).gameObject.SetActive(true);
             AudioManager.Instance.audioSource.PlayOneShot(AudioManager.Instance.packaging, 1f);
         }

@@ -18,7 +18,6 @@ public class CupTaker : MonoBehaviour
 
             var targetPos = isRight ? new Vector3(border,-0.5f,transform.position.z) : new Vector3(-border, -0.5f, transform.position.z);
             transform.DOMove(targetPos, movementSpeed);
-            MoneyManager.Instance.RewardPileOfCoin(4);
         }
     }
 }
